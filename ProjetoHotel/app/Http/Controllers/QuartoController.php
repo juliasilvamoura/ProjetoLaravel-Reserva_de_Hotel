@@ -20,12 +20,12 @@ class QuartoController extends Controller
     //retornar pagina de listagem de quarto
     public function index(Request $request)
     {
-       //$registros = $this->repository->paginate(10);
+       $registros = $this->repository->all();
 
-        return view('quarto.index');
-      /*    ,[
+        return view('quarto.index'
+          ,[
             'registros' => $registros,
-        ]); ERRO NO quarto/LISTAR */ 
+        ]);  
     }
 
     //pagina para cadastrar novo quarto

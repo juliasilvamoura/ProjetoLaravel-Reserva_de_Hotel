@@ -21,12 +21,12 @@ class PagamentoController extends Controller
     //retornar pagina de listagem de pagamento
     public function index(Request $request)
     {
-       //$registros = $this->repository->paginate(10);
+       $registros = $this->repository->all();
 
-        return view('pagamento.index');
-      /*    ,[
+        return view('pagamento.index'
+          ,[
             'registros' => $registros,
-        ]); ERRO NO pagamento/LISTAR */ 
+        ]); 
     }
 
     //pagina para cadastrar novo pagamento

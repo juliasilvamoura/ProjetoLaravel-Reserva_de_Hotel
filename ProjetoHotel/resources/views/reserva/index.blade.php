@@ -51,7 +51,7 @@
                         </thead>
                         <tbody>
 
-{{-- 
+ 
                             @foreach($registros as $registro)
                             <tr>
                             <td data-title="Id"  style="text-align: center" >{{$registro->id }}</td>
@@ -64,7 +64,7 @@
                                 <a class="btn btn-warning btn-sm" href="{{ url('/reserva/consultar', $registro->id) }}"><i class="fa fa-address-book"></i></a>
                             </td>
                             </tr>
-                            @endforeach  ERRO NO reserva/LISTAR--}}
+                            @endforeach  
                         </tbody>
                     </table>
                    {{--  @if(@isset($filters))

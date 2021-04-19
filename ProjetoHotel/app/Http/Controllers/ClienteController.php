@@ -21,12 +21,12 @@ class ClienteController extends Controller
     //retornar pagina de listagem de cliente
     public function index(Request $request)
     {
-       //$registros = $this->repository->paginate(10);
+        $registros = $this->repository->all();
 
-        return view('cliente.index');
-      /*    ,[
+        return view('cliente.index'
+          ,[
             'registros' => $registros,
-        ]); ERRO NO CLIENTE/LISTAR */ 
+        ]);
     }
 
     //pagina para cadastrar novo cliente

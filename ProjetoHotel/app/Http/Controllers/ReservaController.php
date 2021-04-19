@@ -24,12 +24,12 @@ class ReservaController extends Controller
     //retornar pagina de listagem de reserva
     public function index(Request $request)
     {
-       //$registros = $this->repository->paginate(10);
+       $registros = $this->repository->all();
 
-        return view('reserva.index');
-      /*    ,[
+        return view('reserva.index'
+          ,[
             'registros' => $registros,
-        ]); ERRO NO reserva/LISTAR */ 
+        ]);
     }
 
     //pagina para cadastrar novo reserva
