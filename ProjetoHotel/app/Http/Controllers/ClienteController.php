@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Model\Cliente;
 use Illuminate\Http\Request;
-//use App\Http\Requests\ClienteRequest;
+use App\Http\Requests\ClienteRequest;
 
 class ClienteController extends Controller
 {
@@ -60,6 +60,10 @@ class ClienteController extends Controller
     public function delete($id)
     {
         $registro = $this->repository->find($id);
+
+        if(!$registro){
+            return redirect()->back();
+        }
 
         return view('cliente.excluir', [
             'registro' => $registro,

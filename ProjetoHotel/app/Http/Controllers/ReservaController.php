@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\ReservaRequest;
 use App\Model\Reserva;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
@@ -96,6 +97,10 @@ class ReservaController extends Controller
         $clientes = Cliente::all();
         $quartos = Quarto::all();
         $pagamentos = Pagamento::all();
+
+        if(!$registro){
+            return redirect()->back();
+        }
 
         return view('reserva.excluir', [
             'registro' => $registro,

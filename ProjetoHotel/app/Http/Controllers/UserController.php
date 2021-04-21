@@ -3,59 +3,65 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Quarto;
+use App\User;
 use App\Http\Controllers\Controller;
 
-class QuartoController extends Controller
+class UserController extends Controller
 {
     private $repository;
     protected $request;
 
-    public function __construct(Request $request, Quarto $quarto)
+    public function __construct(Request $request, User $usuario)
     {
-        $this->repository = $quarto;
+        $this->repository = $usuario;
         $this->request = $request;
     }
 
-    //retornar pagina de listagem de quarto
+    //retornar pagina de listagem de usuario
     public function index(Request $request)
     {
        $registros = $this->repository->all();
 
-        return view('quarto.index'
+        return view('usuario.index'
           ,[
             'registros' => $registros,
-        ]);  
+        ]);
     }
 
-    //pagina para cadastrar novo quarto
+    //pagina para cadastrar novo usuario
     public function new()
     {
-        return view('quarto.cadastrar');
+
+        return view('usuario.cadastrar');
 
     }
 
-        //salvar registro de novo quarto
+        //salvar registro de novo usuario
     public function create(Request $request)
     {
-        return redirect()->route('quarto.listar')->with('success','Registro Cadastrado com sucesso!');
-        //return view('quarto.index');
+        $data = $request->all();
+
+        $this->repository->create($data);
+
+        return redirect()->route('usuario.listar')->with('success','Registro Cadastrado com sucesso!');
+        
     }
 
-    //retorna o registro de quarto para alteração dos dados
+    //retorna o registro de usuario para alteração dos dados
     public function update($id)
     {
+
         $registro = $this->repository->find($id);
 
         if(!$registro){
             return redirect()->back();
         }
-        return view('quarto.alterar', [
+        return view('usuario.alterar', [
             'registro' => $registro,
         ]);
     }
 
-    //retorna o registro de quarto para excluir do banco de dados
+    //retorna o registro de usuario para excluir do banco de dados
     public function delete($id)
     {
         $registro = $this->repository->find($id);
@@ -64,7 +70,7 @@ class QuartoController extends Controller
             return redirect()->back();
         }
 
-        return view('quarto.excluir', [
+        return view('usuario.excluir', [
             'registro' => $registro,
         ]);
     }
@@ -72,32 +78,35 @@ class QuartoController extends Controller
     //retorna o registro para consulta
     public function view($id)
     {
+
         $registro = $this->repository->find($id);
 
-        return view('quarto.consultar', [
-            'registro' => $registro 
+
+        return view('usuario.consultar', [
+            'registro' => $registro, 
         ]);
     }
 
-    //alterar no banco o resgistro do quarto - modificado pelo usuário - tela
+    //alterar no banco o resgistro do usuario - modificado pelo usuário - tela
     public function save(Request $request, $id)
     {
-        //return view('quarto.listar');
-        return redirect()->route('quarto.listar')->with('success','Registro Alterado com sucesso!');
+
+        
+        return redirect()->route('usuario.listar')->with('success','Registro Alterado com sucesso!');
     }
 
-    //excluir no banco o registro do quarto
+    //excluir no banco o registro do usuario
     public function excluir( $id)
     {
         $registro = $this->repository->find($id);
         $registro->delete();
-        return redirect()->route('quarto.listar')->with('success','Registro Excluído com sucesso!');
+        return redirect()->route('usuario.listar')->with('success','Registro Excluído com sucesso!');
     }
 
     //cancela a operação do usuario
     public function cancel()
     {
-        return redirect()->route('quarto.listar');
+        return redirect()->route('usuario.listar');
     }
 
     //buscar
@@ -107,7 +116,7 @@ class QuartoController extends Controller
 
         $registros = $this->repository->search($request->nome);
 
-        return view('quarto.index', [
+        return view('usuario.index', [
             'registros' => $registros,
             'filters' => $filters,
         ]);
@@ -116,6 +125,6 @@ class QuartoController extends Controller
 
     public function home()
     {
-        return view('quarto.home');
+        return view('usuario.home');
     } 
 }

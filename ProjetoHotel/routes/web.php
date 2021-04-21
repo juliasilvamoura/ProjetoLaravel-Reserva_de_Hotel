@@ -11,9 +11,19 @@
 |
 */
 
+use App\Http\Controllers\ImageController;
 use Illuminate\Support\Facades\Route;
 //auth()->user();
 //use App\User;
+
+Route::get('/imagem/{imagem}', 'ImageController@getImages')->name('get.images');
+Route::post('/store', 'ImageController@store')->name('imagem.store');
+Route::post('/imagem/excluir', 'ImageController@excluir')->name('imagem.excluir');
+
+Route::get('/usuario/listar','UserController@index')->name('usuario.listar');
+Route::get('/usuario/cadastrar','UserController@new')->name('usuario.cadastrar');
+Route::get('/usuario/cancelar','UserController@cancel')->name('usuario.listar');
+
 
 Route::get('/cliente/listar','ClienteController@index')->name('cliente.listar');
 Route::get('/cliente/cadastrar','ClienteController@new')->name('cliente.cadastrar');

@@ -66,6 +66,10 @@ class PagamentoController extends Controller
     {
         $registro = $this->repository->find($id);
 
+        if(!$registro){
+            return redirect()->back();
+        }
+
         return view('pagamento.excluir', [
             'registro' => $registro,
         ]);
