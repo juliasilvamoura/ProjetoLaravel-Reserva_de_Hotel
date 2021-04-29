@@ -12,8 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('lib/bootstrap/css/main.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">  o do cocão não tem mais o da Nath tem--}}
-    <link href="{{ asset('lib/fontawesome/css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('lib/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
 
 
 </head>
@@ -33,10 +32,10 @@
     
     
      <!-- Scripts -->
-     <script src="{{ asset('lib/bootstrap/js/jquery-3.3.1.min.js') }}" defer></script>
-     <script src="{{ asset('lib/bootstrap/js/main.js') }}" defer></script>
-     <script src="{{ asset('lib/bootstrap/js/bootstrap.min.js') }}" defer></script>
-     <script src="{{ asset('lib/bootstrap/js/popper.min.js') }}" defer></script>
+     <script src="{{ asset('lib/bootstrap/js/jquery-3.3.1.min.js') }}" ></script>
+     <script src="{{ asset('lib/bootstrap/js/main.js') }}" ></script>
+     <script src="{{ asset('lib/bootstrap/js/bootstrap.min.js') }}" ></script>
+     <script src="{{ asset('lib/bootstrap/js/popper.min.js') }}"></script>
      <script src="{{ asset('lib/bootstrap/js/plugins/pace.min.js') }}" ></script>
 
 

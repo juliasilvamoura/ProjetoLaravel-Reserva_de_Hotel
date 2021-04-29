@@ -16763,10 +16763,10 @@ color: #7e7e7e;
 #clickHereLeft{
   margin-left: 10%;
   cursor: pointer;
-  color: white;
+  color: white; 
   font-size: 17px;
-  width: 70px;
-  height: 30px;
+  width: 100px;
+  height: 45px;
   border-radius: 4px;
   background-color: #4679bd;
   padding-top: 10px;
@@ -16775,10 +16775,10 @@ color: #7e7e7e;
 #clickHereRight{
   margin-left: 10%;
   cursor: pointer;
-  color: white;
+  color: white; 
   font-size: 17px;
-  width: 70px;
-  height: 30px;
+  width: 100px;
+  height: 45px;
   border-radius: 4px;
   background-color: #ff0000;
   padding-top: 10px;
@@ -16801,4 +16801,12 @@ color: #7e7e7e;
   text-align: center;
   font-size: 14px;
   margin-top: 5px;
+}
+
+.avatar{
+  width: 70%;
+  display: block;
+  border-radius: 50%;
+  height: auto;
+  margin: 0 auto;
 }
